@@ -1,0 +1,25 @@
+import React from "react";
+import classnames from "classnames";
+import { StyleProps, computeStyles } from "./standard";
+
+class Props extends StyleProps {
+  //Insert Props Here
+  className?: string;
+  children?: React.ReactNode;
+}
+
+const Screen: React.FC<Props> = ({ className, children, ...styles }) => {
+  return (
+    <div
+      className={classnames(
+        "max-w-screen-lg w-full mx-auto",
+        computeStyles(styles),
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default Screen;
