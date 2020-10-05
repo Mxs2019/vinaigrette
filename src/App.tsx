@@ -37,13 +37,13 @@ function App() {
         </HStack>
         <Grid cols={3}>
           {data.integrationOptions.map((i) => (
-            <VStack border shadow padding hover>
+            <VStack border shadow padding>
               <HStack>
                 <Header>{i.name}</Header>
                 <Spacer />
                 <Logo size="sm">{i.logo}</Logo>
               </HStack>
-              <Paragraph />
+              <Paragraph></Paragraph>
             </VStack>
           ))}
         </Grid>

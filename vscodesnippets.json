@@ -1,0 +1,28 @@
+{
+	"React Vinnegrrete Component (Style Wrapper)": {
+		"prefix": "reactVinnegrete",
+		"body": [
+			"import React from 'react';",
+			"import classnames from 'classnames';",
+			"import { StyleProps, computeStyles } from './standard';"
+			"",
+			"class Props extends StyleProps {",
+			"  //Insert Props Here",
+			"className?: string;"
+			"children?: React.ReactNode;"
+			"}",
+			"",
+			"const ${TM_FILENAME_BASE}: React.FC<Props> = ({ className, children, ...styles }) => {",
+			"	return (",
+			"		<div className={classnames('${0}',computeStyles(styles), className)}>",
+			"	        {children}",
+			"		</div>",
+			"	);",
+			"}",
+			"",
+			"export default ${TM_FILENAME_BASE};",
+			""
+		],
+		"description": "React Function Component (TypeScript)"
+	}
+}
