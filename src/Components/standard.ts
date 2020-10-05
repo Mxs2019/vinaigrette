@@ -1,8 +1,7 @@
 import classnames from "classnames";
 
 export class StyleProps {
-  alignment?: "left" | "center" | "right";
-  background?: true | "dark";
+  background?: true | "dark" | "white";
   padding?: true | "sm" | "md" | "lg";
   bolded?: true;
   rounded?: true | "sm" | "md" | "lg";
@@ -43,6 +42,7 @@ export const computeStyles = ({
     },
     {
       "bg-gray-200": background === true,
+      "bg-white": background === "white",
     },
     {
       "font-bold": bolded === true,

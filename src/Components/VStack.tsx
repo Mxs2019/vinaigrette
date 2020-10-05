@@ -6,18 +6,27 @@ class Props extends StyleProps {
   //Insert Props Here
   className?: string;
   children?: React.ReactNode;
+  noGap?: boolean;
+  dividor?: boolean;
 }
 
 const VStack: React.FC<Props> = ({
   className,
   children,
-  alignment,
+  noGap,
+  dividor,
   ...styles
 }) => {
   return (
     <div
       className={classnames(
-        "flex flex-col gap-4 w-full items-stretch",
+        "flex flex-col w-full items-stretch",
+        {
+          "gap-4": noGap !== true && dividor !== true,
+        },
+        {
+          "divide-y": dividor === true,
+        },
         computeStyles(styles),
         className
       )}

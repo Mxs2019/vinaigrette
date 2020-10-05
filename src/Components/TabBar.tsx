@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import classnames from "classnames";
+import HStack from "./HStack";
+import { computeStyles, StyleProps } from "./standard";
 
 type TabProps = {
   //Insert Props Here
@@ -25,28 +27,43 @@ export const Tab: React.FC<TabProps> = ({
         className
       )}
     >
-      {children}
+      {name}
     </div>
   );
 };
 
-type Props = {
+class Props extends StyleProps {
   //Insert Props Here
+  children?: React.ReactNode[];
   className?: string;
-  children: React.ReactNode[];
-};
+}
 
-const TabBar: React.FC<Props> = ({ className, children }) => {
+const TabBar: React.FC<Props> = ({ className, children = [""], ...styles }) => {
+  console.log("Loading Tab Bar");
   const [selectedTab, setSelectedTab] = useState(0);
 
   const tabNames = children.map((t: any) => t.props.name);
   console.log(tabNames);
+  const computedStyles = computeStyles(styles);
   return (
     <div className={classnames("", className)}>
-      {children &&
-        children.map((t, index) => (
-          <Tab active={selectedTab === index} name="" />
+      <HStack noGap className="border-b">
+        {children.map(({ props: { name } }: any, index) => (
+          <div
+            className={classnames("px-4 py-2 hover:bg-gray-200", {
+              "border-b-2 border-gray-700 font-medium": index === selectedTab,
+              "cursor-pointer border-b-2 border-gray-300 hover:border-gray-500":
+                index !== selectedTab,
+            })}
+            onClick={() => setSelectedTab(index)}
+          >
+            {name}
+          </div>
         ))}
+      </HStack>
+      <div className={classnames(computeStyles(styles))}>
+        {(children[selectedTab] as any).props.children}
+      </div>
     </div>
   );
 };
