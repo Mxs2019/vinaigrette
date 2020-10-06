@@ -1,9 +1,9 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "./standard";
+import { StyleProps, computeStyles } from "../standard";
 import ReactPlaceholder from "react-placeholder";
 import "react-placeholder/lib/reactPlaceholder.css";
-import config from "../vinaigrette.config";
+import config from "../../vinaigrette.config";
 
 class Props extends StyleProps {
   //Insert Props Here

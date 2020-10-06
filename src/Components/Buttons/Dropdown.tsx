@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "./standard";
+import { StyleProps, computeStyles } from "../standard";
 import { Menu, Transition } from "@headlessui/react";
 
 class Props extends StyleProps {

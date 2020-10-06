@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "./standard";
+import { StyleProps, computeStyles } from "../standard";
 
 class Props extends StyleProps {
   //Insert Props Here
@@ -8,18 +8,18 @@ class Props extends StyleProps {
   children?: React.ReactNode;
 }
 
-const FormLabel: React.FC<Props> = ({ className, children, ...styles }) => {
+const Screen: React.FC<Props> = ({ className, children, ...styles }) => {
   return (
-    <label
+    <div
       className={classnames(
-        "mb-1 text-sm text-gray-700 block",
+        "max-w-screen-lg w-full mx-auto",
         computeStyles(styles),
         className
       )}
     >
       {children}
-    </label>
+    </div>
   );
 };
 
-export default FormLabel;
+export default Screen;

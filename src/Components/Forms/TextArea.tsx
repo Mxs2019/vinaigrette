@@ -1,8 +1,8 @@
 import React from "react";
 import classnames from "classnames";
 import { StyleProps, computeStyles } from "../standard";
-import Icon, { IconType } from "../Icon";
-import FormLabel from "../FormLabel";
+import Icon, { IconType } from "../Other/Icon";
+import FormLabel from "./FormLabel";
 
 class Props extends StyleProps {
   //Insert Props Here

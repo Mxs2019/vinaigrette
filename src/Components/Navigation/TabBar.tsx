@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import HStack from "./HStack";
-import { computeStyles, StyleProps } from "./standard";
+import HStack from "../Layout/HStack";
+import { computeStyles, StyleProps } from "../standard";
 
 type TabProps = {
   //Insert Props Here

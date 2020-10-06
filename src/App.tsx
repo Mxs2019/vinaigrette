@@ -1,23 +1,28 @@
 import React from "react";
-import Button from "./Components/Button";
-import Container from "./Components/Container";
-import List from "./Components/VStack";
-import Grid from "./Components/Grid";
-import Dividor from "./Components/Dividor";
-import TabBar, { Tab } from "./Components/TabBar";
-import Screen from "./Components/Screen";
-import VStack from "./Components/VStack";
-import HStack from "./Components/HStack";
-import Spacer from "./Components/Spacer";
+import Button from "./Components/Buttons/Button";
+import Container from "./Components/Layout/Container";
+import List from "./Components/Layout/VStack";
+import Grid from "./Components/Layout/Grid";
+import Dividor from "./Components/Layout/Dividor";
+import TabBar, { Tab } from "./Components/Navigation/TabBar";
+import Screen from "./Components/Layout/Screen";
+import VStack from "./Components/Layout/VStack";
+import HStack from "./Components/Layout/HStack";
+import Spacer from "./Components/Layout/Spacer";
 import { filledArray } from "./generators";
 import { data } from "./data";
-import Logo from "./Components/Logo";
-import Paragraph from "./Components/Paragraph";
-import { Title, Subtitle, Subheader, Header } from "./Components/Typography";
+import Logo from "./Components/Other/Logo";
+import Paragraph from "./Components/Typography/Paragraph";
+import {
+  Title,
+  Subtitle,
+  Subheader,
+  Header,
+} from "./Components/Typography/Typography";
 import Input from "./Components/Forms/Input";
 import TextArea from "./Components/Forms/TextArea";
 import Checkbox from "./Components/Forms/Checkbox";
-import Dropdown from "./Components/Dropdown";
+import Dropdown from "./Components/Buttons/Dropdown";
 
 function App() {
   const items = filledArray(8, (index) => (

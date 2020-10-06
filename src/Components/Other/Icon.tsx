@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "./standard";
+import { StyleProps, computeStyles } from "../standard";
 import { FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
 
 export type IconType = "chevron-left" | "search" | "chevron-right";
