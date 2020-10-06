@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classnames from "classnames";
-import HStack from "../Layout/HStack";
-import { computeStyles, StyleProps } from "../standard";
+import { HStack } from "../Layout/HStack";
+import { computeStyles, StyleProps } from "../styles";
 
 type TabProps = {
   //Insert Props Here
@@ -13,7 +13,6 @@ type TabProps = {
 
 export const Tab: React.FC<TabProps> = ({
   className,
-  children,
   active = false,
   name,
 }) => {
@@ -38,13 +37,14 @@ class Props extends StyleProps {
   className?: string;
 }
 
-const TabBar: React.FC<Props> = ({ className, children = [""], ...styles }) => {
+export const TabBar: React.FC<Props> = ({
+  className,
+  children = [""],
+  ...styles
+}) => {
   console.log("Loading Tab Bar");
   const [selectedTab, setSelectedTab] = useState(0);
 
-  const tabNames = children.map((t: any) => t.props.name);
-  console.log(tabNames);
-  const computedStyles = computeStyles(styles);
   return (
     <div className={classnames("", className)}>
       <HStack noGap className="border-b">
@@ -67,5 +67,3 @@ const TabBar: React.FC<Props> = ({ className, children = [""], ...styles }) => {
     </div>
   );
 };
-
-export default TabBar;

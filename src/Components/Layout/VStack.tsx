@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
+import { StyleProps, computeStyles } from "../styles";
 
 class Props extends StyleProps {
   //Insert Props Here
@@ -12,16 +12,18 @@ class Props extends StyleProps {
   dividor?: boolean;
 }
 
-const VStack: React.FC<Props> = ({
+export const VStack: React.FC<Props> = ({
   alignment = "stretch",
   className,
   children,
   noGap,
   dividor,
+  style,
   ...styles
 }) => {
   return (
     <div
+      style={style}
       className={classnames(
         "flex flex-col w-full",
         {
@@ -44,5 +46,3 @@ const VStack: React.FC<Props> = ({
     </div>
   );
 };
-
-export default VStack;

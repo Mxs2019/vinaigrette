@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
+import { StyleProps, computeStyles } from "../styles";
 
 class Props extends StyleProps {
   //Insert Props Here
@@ -12,7 +12,7 @@ class Props extends StyleProps {
   onChange?: (newValue: boolean) => void;
 }
 
-const Checkbox: React.FC<Props> = ({
+export const Checkbox: React.FC<Props> = ({
   className,
   children,
   label,
@@ -45,5 +45,3 @@ const Checkbox: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Checkbox;

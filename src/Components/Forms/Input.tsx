@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
-import Icon, { IconType } from "../Other/Icon";
+import { StyleProps, computeStyles } from "../styles";
+import { Icon, IconType } from "../Other/Icon";
 import FormLabel from "./FormLabel";
 
 class Props extends StyleProps {
@@ -18,7 +18,7 @@ class Props extends StyleProps {
   leftIcon?: IconType;
 }
 
-const Input: React.FC<Props> = ({
+export const Input: React.FC<Props> = ({
   className,
   children,
   type,
@@ -52,5 +52,3 @@ const Input: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Input;

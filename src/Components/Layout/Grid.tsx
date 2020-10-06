@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
+import { StyleProps, computeStyles } from "../styles";
 
 class Props extends StyleProps {
   //Insert Props Here
@@ -10,7 +10,7 @@ class Props extends StyleProps {
   centerItems?: boolean;
 }
 
-const Grid: React.FC<Props> = ({
+export const Grid: React.FC<Props> = ({
   className,
   children,
   cols = 4,
@@ -18,16 +18,16 @@ const Grid: React.FC<Props> = ({
   ...styles
 }) => {
   const colClasses = {
-    2: "grid-cols-2",
-    3: "grid-cols-3",
-    4: "grid-cols-4",
-    5: "grid-cols-5",
-    6: "grid-cols-6",
+    2: "md:grid-cols-2",
+    3: "md:grid-cols-3",
+    4: "md:grid-cols-4",
+    5: "md:grid-cols-5",
+    6: "md:grid-cols-6",
   };
   return (
     <div
       className={classnames(
-        "grid gap-x-4 gap-y-4 w-full",
+        "grid gap-x-4 gap-y-4 w-full grid-cols-1",
         {
           "place-items-center": centerItems,
           "place-items-stretch": !centerItems,
@@ -41,5 +41,3 @@ const Grid: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Grid;

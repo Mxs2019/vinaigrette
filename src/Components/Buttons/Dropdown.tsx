@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
+import { StyleProps, computeStyles } from "../styles";
 import { Menu, Transition } from "@headlessui/react";
 
 class Props extends StyleProps {
@@ -9,7 +9,11 @@ class Props extends StyleProps {
   children?: React.ReactNode;
 }
 
-const Dropdown: React.FC<Props> = ({ className, children, ...styles }) => {
+export const Dropdown: React.FC<Props> = ({
+  className,
+  children,
+  ...styles
+}) => {
   return (
     <div className={classnames("", computeStyles(styles), className)}>
       <Menu>
@@ -42,5 +46,3 @@ const Dropdown: React.FC<Props> = ({ className, children, ...styles }) => {
     </div>
   );
 };
-
-export default Dropdown;

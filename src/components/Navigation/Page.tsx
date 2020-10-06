@@ -1,32 +1,31 @@
 import React from "react";
 import classnames from "classnames";
 import { StyleProps, computeStyles } from "../styles";
+import { IconType } from "../Other/Icon";
 
 class Props extends StyleProps {
   //Insert Props Here
   className?: string;
-  children?: string;
-  size?: "sm" | "md" | "lg" | "xl";
+  children?: React.ReactNode;
+  name: string;
+  icon?: IconType;
+
+  constructor() {
+    super();
+    this.name = "";
+  }
 }
 
-export const Logo: React.FC<Props> = ({
+export const Page: React.FC<Props> = ({
   className,
   children,
-  size = "md",
+  name = "",
+  icon,
   ...styles
 }) => {
-  const computeSize = {
-    sm: 40,
-    md: 60,
-    lg: 100,
-    xl: 160,
-  };
   return (
     <div className={classnames("", computeStyles(styles), className)}>
-      <img
-        src={`//logo.clearbit.com/${children}?size=${computeSize[size]}`}
-        alt={children}
-      />
+      {children}
     </div>
   );
 };

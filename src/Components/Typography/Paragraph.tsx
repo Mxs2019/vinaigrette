@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
+import { StyleProps, computeStyles } from "../styles";
 import ReactPlaceholder from "react-placeholder";
 import "react-placeholder/lib/reactPlaceholder.css";
 
@@ -11,7 +11,7 @@ class Props extends StyleProps {
   placeholderRows?: number;
 }
 
-const Paragraph: React.FC<Props> = ({
+export const Paragraph: React.FC<Props> = ({
   className,
   children,
   placeholderRows = 3,
@@ -28,5 +28,3 @@ const Paragraph: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Paragraph;

@@ -4,7 +4,7 @@
 		"body": [
 			"import React from 'react';",
 			"import classnames from 'classnames';",
-			"import { StyleProps, computeStyles } from './standard';"
+			"import { StyleProps, computeStyles } from '../styles';"
 			"",
 			"class Props extends StyleProps {",
 			"  //Insert Props Here",
@@ -12,9 +12,10 @@
 			"children?: React.ReactNode;"
 			"}",
 			"",
-			"const ${TM_FILENAME_BASE}: React.FC<Props> = ({ className, children, ...styles }) => {",
+			"const ${TM_FILENAME_BASE}: React.FC<Props> = (props) => {",
+			"const { className, children, style, onClick } = props;"
 			"	return (",
-			"		<div className={classnames('${0}',computeStyles(styles), className)}>",
+			"		<div style={style} className={classnames('${0}',computeStyles(props), className)}>",
 			"	        {children}",
 			"		</div>",
 			"	);",

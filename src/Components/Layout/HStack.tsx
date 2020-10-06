@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
+import { StyleProps, computeStyles } from "../styles";
 
 class Props extends StyleProps {
   //Insert Props Here
@@ -11,12 +11,14 @@ class Props extends StyleProps {
   dividor?: boolean;
 }
 
-const HStack: React.FC<Props> = ({
+export const HStack: React.FC<Props> = ({
   className,
   children,
   alignment = "center",
   noGap,
   dividor,
+  style,
+  onClick,
   ...styles
 }) => {
   return (
@@ -37,10 +39,10 @@ const HStack: React.FC<Props> = ({
         computeStyles(styles),
         className
       )}
+      onClick={onClick}
+      style={style}
     >
       {children}
     </div>
   );
 };
-
-export default HStack;

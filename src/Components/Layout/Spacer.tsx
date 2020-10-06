@@ -7,8 +7,6 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const Spacer: React.FC<Props> = ({ className, children }) => {
+export const Spacer: React.FC<Props> = ({ className, children }) => {
   return <div className={classnames("flex-grow", className)}>{children}</div>;
 };
-
-export default Spacer;

@@ -9,7 +9,13 @@ export class StyleProps {
   shadow?: true | "sm" | "md" | "lg";
   hover?: true;
   textCenter?: true;
+  center?: true;
   dark?: true;
+  maxWidth?: true | "xs" | "sm" | "md" | "lg" | "xl";
+  style?: any;
+  uppercase?: true;
+  colSpan?: "2" | "3" | "4" | "5" | "6";
+  onClick?: () => void;
 }
 
 export const computeStyles = ({
@@ -21,8 +27,15 @@ export const computeStyles = ({
   shadow,
   hover,
   textCenter,
+  center,
   dark,
+  maxWidth,
+  colSpan,
+  onClick,
+  uppercase,
 }: StyleProps) => {
+  const showHoverStyles = hover === true || onClick;
+
   return classnames(
     {
       "p-4": padding === true,
@@ -44,10 +57,10 @@ export const computeStyles = ({
     },
     {
       "hover:bg-gray-200 cursor-pointer":
-        hover === true && background !== true && !dark,
+        showHoverStyles && background !== true && !dark,
       "hover:bg-gray-400 cursor-pointer":
-        hover === true && background === true && !dark,
-      "hover:bg-gray-800 cursor-pointer": hover === true && dark,
+        showHoverStyles && background === true && !dark,
+      "hover:bg-gray-800 cursor-pointer": showHoverStyles && dark,
     },
     {
       "border border-gray-400": border === true && background && !dark,
@@ -65,6 +78,26 @@ export const computeStyles = ({
     },
     {
       "text-center": textCenter === true,
+    },
+    {
+      "uppercase tracking-wider": uppercase === true,
+    },
+    {
+      "mx-auto": center === true,
+    },
+    {
+      "max-w-xs": maxWidth === "xs",
+      "max-w-sm": maxWidth === "sm",
+      "max-w-md": maxWidth === true || maxWidth === "md",
+      "max-w-lg": maxWidth === "lg",
+      "max-w-xl": maxWidth === "xl",
+    },
+    {
+      "col-span-2": colSpan === "2",
+      "col-span-3": colSpan === "3",
+      "col-span-4": colSpan === "4",
+      "col-span-5": colSpan === "5",
+      "col-span-6": colSpan === "6",
     }
   );
 };

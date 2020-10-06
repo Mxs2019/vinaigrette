@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "../standard";
+import { StyleProps, computeStyles } from "../styles";
 
 class Props extends StyleProps {
   //Insert Props Here
@@ -8,12 +8,14 @@ class Props extends StyleProps {
   children?: React.ReactNode;
 }
 
-const Container: React.FC<Props> = ({ className, children, ...styles }) => {
+export const Container: React.FC<Props> = ({
+  className,
+  children,
+  ...styles
+}) => {
   return (
     <div className={classnames("", computeStyles(styles), className)}>
       {children}
     </div>
   );
 };
-
-export default Container;

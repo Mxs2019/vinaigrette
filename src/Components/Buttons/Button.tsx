@@ -1,24 +1,27 @@
 import React from "react";
 import classnames from "classnames";
+import { computeStyles, StyleProps } from "../styles";
 
-type Props = {
+class Props extends StyleProps {
   //Insert Props Here
   className?: string;
   children?: React.ReactNode;
   type?: "primary" | "secondary" | "link";
   size?: "sm" | "md" | "lg";
-};
 
-const Button: React.FC<Props> = ({
-  className,
-  children,
-  type = "secondary",
-  size = "md",
-}) => {
+  constructor() {
+    super();
+    this.type = "secondary";
+    this.size = "md";
+  }
+}
+
+export const Button: React.FC<Props> = (props) => {
+  const { className, children, type, size } = props;
   return (
     <div
       className={classnames(
-        "px-4 py-2  hover:shadow-md rounded-sm  cursor-pointer flex items-center justify-center",
+        "px-4 py-2  hover:shadow-md rounded  cursor-pointer flex items-center justify-center",
         {
           "border-2 border-gray-400 hover:bg-gray-200 text-gray-700":
             type === "secondary",
@@ -29,6 +32,7 @@ const Button: React.FC<Props> = ({
           "px-4 py-2": size === "md",
           "text-lg px-8 py-4": size === "lg",
         },
+        computeStyles(props),
         className
       )}
     >
@@ -36,5 +40,3 @@ const Button: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Button;

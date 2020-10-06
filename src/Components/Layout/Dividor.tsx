@@ -6,12 +6,10 @@ type Props = {
   className?: string;
 };
 
-const Dividor: React.FC<Props> = ({ className }) => {
+export const Dividor: React.FC<Props> = ({ className }) => {
   return (
     <div
       className={classnames("h-1 border-t border-gray-400 w-full", className)}
     ></div>
   );
 };
-
-export default Dividor;
