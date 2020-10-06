@@ -43,7 +43,7 @@ function App() {
         </Paragraph>
         <TabBar>
           <Tab name="Forms">
-            <HStack>
+            <HStack alignment="top">
               <VStack padding>
                 <Header>Input</Header>
                 <Input label="Form Label" placeholder="Form Placeholder" />
@@ -80,8 +80,9 @@ function App() {
               <VStack>{items}</VStack>
             </VStack>
           </Tab>
-          <Tab name="Buttons">
+          <Tab name="Controls">
             <VStack padding>
+              <Header>Buttons</Header>
               <HStack alignment="top">
                 <Button>Regular Button</Button>
                 <Button type="primary">Primary Button</Button>
@@ -126,6 +127,18 @@ function App() {
                   <Tab name={`Tab ${index + 1}`}>Tab {index + 1} Contentes</Tab>
                 ))}
               </TabBar>
+              <Header>Navigation Bar</Header>
+              <HStack>
+                <HStack>
+                  <div>Left Item 1</div>
+                  <div>Left Item 2</div>
+                </HStack>
+                <Spacer />
+                <HStack>
+                  <div>Right Item 1</div>
+                  <div>Right Item 2</div>
+                </HStack>
+              </HStack>
             </VStack>
           </Tab>
         </TabBar>

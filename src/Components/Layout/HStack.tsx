@@ -22,7 +22,7 @@ const HStack: React.FC<Props> = ({
   return (
     <div
       className={classnames(
-        "flex w-full",
+        "flex",
         {
           "gap-4": noGap !== true && dividor !== true,
         },
