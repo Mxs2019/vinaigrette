@@ -23,6 +23,7 @@ import Input from "./Components/Forms/Input";
 import TextArea from "./Components/Forms/TextArea";
 import Checkbox from "./Components/Forms/Checkbox";
 import Dropdown from "./Components/Buttons/Dropdown";
+import Icon from "./Components/Other/Icon";
 
 function App() {
   const items = filledArray(8, (index) => (
@@ -42,6 +43,58 @@ function App() {
           potential solutions.
         </Paragraph>
         <TabBar>
+          <Tab name="Test">
+            <VStack noGap>
+              <Container dark padding textCenter>
+                Introducing Yext Hitchhikers A self-serve training platform and
+                community of power users
+              </Container>
+              <HStack padding>
+                <Icon iconType="chevron-left" />
+                <Input leftIcon="search" placeholder="Search for anything" />
+                <Button type="link">Sign In</Button>
+                <Button type="link">Contact Us</Button>
+                <Button type="primary">Get Started</Button>
+              </HStack>
+              <Dividor />
+              <VStack padding="2xl" textCenter>
+                <Title>
+                  Add the world's best search experience to your website— for
+                  free and in minutes.
+                </Title>
+                <Button type="primary">Try Answers for Free</Button>
+              </VStack>
+              <VStack alignment="center" textCenter dark padding="xl">
+                <Header>
+                  Join the 1000s of businesses worldwide who transformed their
+                  websites with the Yext Official Answers Engine.
+                </Header>
+                <Subheader>
+                  SEARCH BELOW TO GET THE OFFICIAL ANSWERS DIRECT FROM THE BRAND
+                </Subheader>
+                <Grid padding cols={3}>
+                  <VStack background="white" padding hover>
+                    <Logo>farmers.com</Logo>
+                  </VStack>
+                  <VStack background="white" padding hover>
+                    <Logo>verizon.com</Logo>
+                  </VStack>
+                  <VStack background="white" padding hover>
+                    <Logo>iha.com</Logo>
+                  </VStack>
+                  <VStack background="white" padding hover>
+                    <Logo>campbellssoup.com</Logo>
+                  </VStack>
+                  <VStack background="white" padding hover>
+                    <Logo>verizon.com</Logo>
+                  </VStack>
+                  <VStack background="white" padding hover>
+                    <Logo>iha.com</Logo>
+                  </VStack>
+                </Grid>
+              </VStack>
+            </VStack>
+          </Tab>
           <Tab name="Forms">
             <HStack alignment="top">
               <VStack padding>
@@ -138,6 +191,29 @@ function App() {
                   <div>Right Item 1</div>
                   <div>Right Item 2</div>
                 </HStack>
+              </HStack>
+            </VStack>
+          </Tab>
+          <Tab name="Other">
+            <VStack>
+              <Header>Logo</Header>
+              <Paragraph>
+                Use the Logo Component to quickly add the logo of a company.
+                This uses clearbit api to populate the logos.
+              </Paragraph>
+              <HStack>
+                <Logo padding shadow border>
+                  google.com
+                </Logo>
+                <Logo padding shadow border>
+                  netflix.com
+                </Logo>
+                <Logo padding shadow border>
+                  apple.com
+                </Logo>
+                <Logo padding shadow border>
+                  microsoft.com
+                </Logo>
               </HStack>
             </VStack>
           </Tab>

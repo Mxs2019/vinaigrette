@@ -32,7 +32,7 @@ const Input: React.FC<Props> = ({
   ...styles
 }) => {
   return (
-    <div className={classnames("max-w-xs", computeStyles(styles), className)}>
+    <div className={classnames("flex-grow", computeStyles(styles), className)}>
       {label && <FormLabel>{label}</FormLabel>}
       <div className="border hover:shadow-sm rounded-sm py-2 px-3 focus-within:shadow-sm focus-within:border-blue-800 flex items-center gap-2">
         {leftIcon && <Icon iconType={leftIcon} size="sm" />}

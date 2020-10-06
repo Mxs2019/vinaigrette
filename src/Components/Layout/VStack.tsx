@@ -4,6 +4,8 @@ import { StyleProps, computeStyles } from "../standard";
 
 class Props extends StyleProps {
   //Insert Props Here
+  alignment?: "left" | "center" | "right" | "stretch";
+
   className?: string;
   children?: React.ReactNode;
   noGap?: boolean;
@@ -11,6 +13,7 @@ class Props extends StyleProps {
 }
 
 const VStack: React.FC<Props> = ({
+  alignment = "stretch",
   className,
   children,
   noGap,
@@ -20,12 +23,18 @@ const VStack: React.FC<Props> = ({
   return (
     <div
       className={classnames(
-        "flex flex-col w-full items-stretch",
+        "flex flex-col w-full",
         {
           "gap-4": noGap !== true && dividor !== true,
         },
         {
           "divide-y": dividor === true,
+        },
+        {
+          "items-center": alignment === "center",
+          "items-top": alignment === "right",
+          "items-bottom": alignment === "left",
+          "items-stretch": alignment === "stretch",
         },
         computeStyles(styles),
         className
