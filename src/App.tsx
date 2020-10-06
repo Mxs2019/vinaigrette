@@ -14,7 +14,10 @@ import { data } from "./data";
 import Logo from "./Components/Logo";
 import Paragraph from "./Components/Paragraph";
 import { Title, Subtitle, Subheader, Header } from "./Components/Typography";
-import Input from "./Components/Input";
+import Input from "./Components/Forms/Input";
+import TextArea from "./Components/Forms/TextArea";
+import Checkbox from "./Components/Forms/Checkbox";
+import Dropdown from "./Components/Dropdown";
 
 function App() {
   const items = filledArray(8, (index) => (
@@ -35,14 +38,22 @@ function App() {
         </Paragraph>
         <TabBar>
           <Tab name="Forms">
-            <VStack padding>
-              <Header>Input</Header>
-              <Input label="Form Label" placeholder="Form Placeholder" />
-              <Header>Select</Header>
-              <Input label="Form Label" placeholder="Form Placeholder" />
-              <Header>Checkbox</Header>
-              <Input label="Form Label" placeholder="Form Placeholder" />
-            </VStack>
+            <HStack>
+              <VStack padding>
+                <Header>Input</Header>
+                <Input label="Form Label" placeholder="Form Placeholder" />
+                <Header>Text Area</Header>
+                <TextArea label="Form Label" placeholder="Form Placeholder" />
+                <Header>Search Bar</Header>
+                <Input placeholder="Search..." leftIcon="search" />
+              </VStack>
+              <VStack padding>
+                <Header>Select</Header>
+                <Input label="Form Label" placeholder="Form Placeholder" />
+                <Header>Checkbox</Header>
+                <Checkbox label="Form Label" />
+              </VStack>
+            </HStack>
           </Tab>
           <Tab name="Layout">
             <VStack padding>
@@ -89,6 +100,8 @@ function App() {
                   Large Link Button
                 </Button>
               </HStack>
+              <Header>Dropdown</Header>
+              <Dropdown />
             </VStack>
           </Tab>
           <Tab name="Typography">

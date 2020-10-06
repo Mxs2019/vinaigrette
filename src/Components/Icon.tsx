@@ -1,18 +1,13 @@
 import React from "react";
 import classnames from "classnames";
 import { StyleProps, computeStyles } from "./standard";
-import {
-  FaChevronCircleRight,
-  FaChevronLeft,
-  FaChevronRight,
-  FaSearch,
-} from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
 
-type IconType = "chevron-left" | "search" | "chevron-right";
+export type IconType = "chevron-left" | "search" | "chevron-right";
 
 class Props extends StyleProps {
   //Insert Props Here
-  iconType: IconType;
+  iconType: IconType | undefined;
   className?: string;
   children?: React.ReactNode;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
@@ -30,21 +25,24 @@ const Icon: React.FC<Props> = ({
     "chevron-left": <FaChevronLeft />,
     "chevron-right": <FaChevronRight />,
   };
+
+  const ComputedIcon = computeIcon[iconType];
   return (
     <div
       className={classnames(
-        "",
+        "text-gray-600",
         {
-          "text-xs": "xs",
-          "text-sm": "sm",
-          "text-lg": "lg",
-          "text-xl": "xl",
+          "text-xs": size === "xs",
+          "text-sm": size === "sm",
+          "text-lg": size === "lg",
+          "text-xl": size === "xl",
         },
         computeStyles(styles),
         className
       )}
-      {...computeIcon[type]}
-    ></div>
+    >
+      {ComputedIcon}
+    </div>
   );
 };
 

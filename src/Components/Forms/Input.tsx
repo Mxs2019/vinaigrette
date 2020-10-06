@@ -1,7 +1,8 @@
 import React from "react";
 import classnames from "classnames";
-import { StyleProps, computeStyles } from "./standard";
-import Icon from "./Icon";
+import { StyleProps, computeStyles } from "../standard";
+import Icon, { IconType } from "../Icon";
+import FormLabel from "../FormLabel";
 
 class Props extends StyleProps {
   //Insert Props Here
@@ -13,6 +14,8 @@ class Props extends StyleProps {
   value?: string;
   defaultValue?: string;
   onChange?: (newValue: string) => void;
+  rightIcon?: IconType;
+  leftIcon?: IconType;
 }
 
 const Input: React.FC<Props> = ({
@@ -24,16 +27,18 @@ const Input: React.FC<Props> = ({
   value,
   defaultValue,
   onChange,
+  rightIcon,
+  leftIcon,
   ...styles
 }) => {
   return (
     <div className={classnames("max-w-xs", computeStyles(styles), className)}>
-      {label && <label className="mb-1 block">{label}</label>}
-      <div className="border hover:shadow-sm rounded-sm py-1 px-3 focus-within:shadow-sm focus-within:border-blue-800">
-        <Icon type="search" />
+      {label && <FormLabel>{label}</FormLabel>}
+      <div className="border hover:shadow-sm rounded-sm py-2 px-3 focus-within:shadow-sm focus-within:border-blue-800 flex items-center gap-2">
+        {leftIcon && <Icon iconType={leftIcon} size="sm" />}
         <input
           placeholder={placeholder}
-          className="focus:outline-none"
+          className="focus:outline-none flex-grow"
           defaultValue={defaultValue}
           value={value}
           onChange={(e) => {
@@ -42,6 +47,7 @@ const Input: React.FC<Props> = ({
             }
           }}
         />
+        {rightIcon && <Icon iconType={rightIcon} size="sm" />}
       </div>
     </div>
   );
