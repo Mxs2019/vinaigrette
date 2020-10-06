@@ -1,5 +1,5 @@
 {
-  "name": "vinaigrette-react",
+  "name": "vinaigrette",
   "version": "0.0.1",
   "description": "Vinaigrette is a wireframing library for React",
   "main": "build/index.js",
