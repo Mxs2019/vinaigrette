@@ -1,6 +1,7 @@
-export const filledArray = (count: number, filler: (index: number) => any) => {
+export const filledArray = (count: number, filler?: (index: number) => any) => {
   const arr = [...new Array(count)];
-  return arr.map((x, i) => filler(i));
+  if (filler) return arr.map((x, i) => filler(i));
+  else return arr;
 };
 
 export const loremIpsum = (size: "sm" | "md" | "lg" | "xl" = "md") => {

@@ -8,12 +8,10 @@ class Props extends StyleProps {
   children?: React.ReactNode;
 }
 
-const Container: React.FC<Props> = ({ className, children, ...styles }) => {
+const SearchBar: React.FC<Props> = ({ className, children, ...styles }) => {
   return (
-    <div className={classnames("", computeStyles(styles), className)}>
-      {children}
-    </div>
+    <div className={classnames("", computeStyles(styles), className)}></div>
   );
 };
 
-export default Container;
+export default SearchBar;

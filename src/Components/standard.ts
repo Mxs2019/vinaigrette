@@ -8,6 +8,7 @@ export class StyleProps {
   border?: true;
   shadow?: true | "sm" | "md" | "lg";
   hover?: true;
+  textCenter?: true;
 }
 
 export const computeStyles = ({
@@ -18,6 +19,7 @@ export const computeStyles = ({
   border,
   shadow,
   hover,
+  textCenter,
 }: StyleProps) => {
   return classnames(
     {
@@ -34,7 +36,8 @@ export const computeStyles = ({
       "shadow-lg": shadow === "lg",
     },
     {
-      "hover:bg-gray-200 cursor-pointer": hover === true,
+      "hover:bg-gray-200 cursor-pointer": hover === true && background !== true,
+      "hover:bg-gray-400 cursor-pointer": hover === true && background === true,
     },
     {
       "border border-gray-400": border === true && background,
@@ -46,6 +49,9 @@ export const computeStyles = ({
     },
     {
       "font-bold": bolded === true,
+    },
+    {
+      "text-center": textCenter === true,
     }
   );
 };
